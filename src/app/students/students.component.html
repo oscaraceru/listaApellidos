@@ -1,0 +1,23 @@
+<div class="card-container">
+  @for (list of lists; track list.id) {
+
+      <div class="card" [ngClass]="list.approved ? 'success' : 'error'">
+        <img src="https://images.vexels.com/media/users/3/136558/isolated/svg/43cc80b4c098e43a988c535eaba42c53.svg" alt="Imagen"  width="100">
+        <div class="card-body">
+          <h5 class="card-title">{{list.fullName | titlecase}} {{list.lastName | titlecase}}</h5>
+          <p class="card-text">
+            <span>Nivel: {{list.level}}</span><br>
+            <span>Calificación: {{list.grade}}</span><br>
+            @if (list.approved) {
+              <span [style.padding] ="styles.padding" [style.backgroundColor] = "styles.backgroundColor" [style.color] = "styles.color">Aprobado: Si</span>
+            }@else {
+              <span [style.padding] ="styles.padding" [style.backgroundColor] = "styles.backgroundColorna" [style.color] = "styles.color">Aprobado: No</span>
+            }
+          </p>
+        </div>
+      </div>
+
+  }@empty {
+    <h1>No hay Estudiantes</h1>
+   }
+</div>
